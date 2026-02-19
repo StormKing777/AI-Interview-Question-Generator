@@ -23,7 +23,7 @@ A responsive web application designed to help software engineering candidates pr
 ## 🚀 How to Run Locally
 1. Clone the repository:
    ```bash
-   https://github.com/YOUR_USERNAME/interview-prep-tool.git](https://github.com/StormKing777/interview-prep-tool.git)
+   https://github.com/StormKing777/interview-prep-tool.git
 2. Open index.html in any modern web browser.
 
 Developed as a demonstration of frontend engineering and technical communication skills.
