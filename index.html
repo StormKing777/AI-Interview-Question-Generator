@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Interview Question Generator</title>
+    <style>
+        :root {
+            --primary-color: #4A90E2;
+            --background-color: #f4f7f6;
+            --card-background: #ffffff;
+            --text-color: #333;
+            --border-radius: 8px;
+            --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: var(--background-color);
+            color: var(--text-color);
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            min-height: 100vh;
+        }
+
+        .container {
+            background-color: var(--card-background);
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            padding: 30px;
+            max-width: 600px;
+            width: 100%;
+            text-align: center;
+            margin-top: 50px;
+        }
+
+        h1 { color: var(--primary-color); }
+
+        .category-selector { margin-bottom: 25px; }
+
+        select {
+            width: 100%;
+            padding: 12px;
+            border-radius: var(--border-radius);
+            border: 1px solid #ccc;
+            margin-top: 10px;
+            font-size: 1rem;
+        }
+
+        button {
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            border-radius: var(--border-radius);
+            padding: 15px 25px;
+            font-size: 1.1rem;
+            cursor: pointer;
+            width: 100%;
+        }
+
+        button:hover { background-color: #357ABD; }
+
+        #question-display {
+            margin-top: 30px;
+            padding: 20px;
+            border: 2px dashed var(--primary-color);
+            border-radius: var(--border-radius);
+            min-height: 100px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 500;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Interview Prep Tool</h1>
+    
+    <div class="category-selector">
+        <label>Pick a Category:</label>
+        <select id="category-select">
+            <option value="data-structures">Data Structures</option>
+            <option value="algorithms">Algorithms</option>
+            <option value="behavioral">Behavioral</option>
+        </select>
+    </div>
+
+    <button id="generate-button">Generate New Question</button>
+
+    <div id="question-display">
+        Your question will appear here...
+    </div>
+</div>
+
+<script>
+    // This is the logic (JavaScript)
+    const questions = [
+        { category: "data-structures", text: "What is the difference between a Stack and a Queue?" },
+        { category: "data-structures", text: "Explain how a Linked List works." },
+        { category: "algorithms", text: "How does Binary Search work?" },
+        { category: "algorithms", text: "What is the time complexity of Quick Sort?" },
+        { category: "behavioral", text: "Tell me about a time you solved a hard bug." },
+        { category: "behavioral", text: "How do you handle tight deadlines?" }
+    ];
+
+    const categorySelect = document.getElementById('category-select');
+    const generateButton = document.getElementById('generate-button');
+    const questionDisplay = document.getElementById('question-display');
+
+    generateButton.addEventListener('click', function() {
+        const selectedCategory = categorySelect.value;
+        const filtered = questions.filter(q => q.category === selectedCategory);
+        const randomQuestion = filtered[Math.floor(Math.random() * filtered.length)];
+        
+        questionDisplay.innerText = randomQuestion.text;
+    });
+</script>
+
+</body>
+</html>
